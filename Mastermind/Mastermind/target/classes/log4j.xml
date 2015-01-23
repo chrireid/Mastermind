@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//Apache//DTD Log4j 1.2//EN" "http://logging.apache.org/log4j/docs/api/org/apache/log4j/xml/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender class="org.apache.log4j.FileAppender" name="RootFileAppender">
+		<param name="File" value="log/MastermindLog.html" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="error" />
+		<layout class="org.apache.log4j.HTMLLayout">
+			<param name="LocationInfo" value="false" />
+		</layout>
+	</appender>
+
+	<appender class="org.apache.log4j.ConsoleAppender" name="RootConsoleAppender">
+		<param name="Threshold" value="debug" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss}, %p, %C{1}, %M %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<level value="debug" />
+		<appender-ref ref="RootFileAppender" />
+		<appender-ref ref="RootConsoleAppender" />
+	</root>
+
+</log4j:configuration>
